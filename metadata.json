@@ -1,6 +1,5 @@
 {
   "name": "Compaoré Abdoul Aziz — Portfolio",
   "description": "Full-Stack Developer & AI Builder. Portfolio personnel de Compaoré Abdoul Aziz : ingénierie logicielle, intelligence artificielle et expériences numériques de pointe.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "requestFramePermissions": []
 }

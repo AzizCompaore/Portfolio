@@ -24,5 +24,6 @@
     "allowImportingTsExtensions": true,
     "noEmit": true
   },
+  "files": ["src/main.tsx", "vite.config.ts"],
   "exclude": ["dist"]
 }

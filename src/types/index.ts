@@ -8,6 +8,8 @@ export interface Project {
   categoryLabel: string;
   year: string;
   url: string;
+  screenshot?: string;
+  screenshotFit?: 'cover' | 'contain';
   githubUrl?: string;
   role: string;
   context: string;

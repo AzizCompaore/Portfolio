@@ -26,6 +26,79 @@ html {
   color: #141416;
 }
 
+body.has-custom-cursor,
+body.has-custom-cursor * {
+  cursor: none !important;
+}
+
+.custom-cursor-ring,
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 9999px;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 160ms ease, width 220ms cubic-bezier(0.2, 0.8, 0.2, 1), height 220ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  will-change: transform;
+}
+
+.custom-cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(20, 20, 22, 0.48);
+  background-color: rgba(255, 248, 241, 0.12);
+  box-shadow: 0 3px 12px rgba(20, 20, 22, 0.08);
+}
+
+.custom-cursor-ring.is-hovering {
+  width: 52px;
+  height: 52px;
+  border-color: var(--color-brand-ochre);
+  background-color: rgba(249, 168, 38, 0.12);
+  box-shadow: 0 0 0 5px rgba(249, 168, 38, 0.08), 0 5px 18px rgba(20, 20, 22, 0.1);
+}
+
+.custom-cursor-ring.is-pressed {
+  width: 30px;
+  height: 30px;
+}
+
+.custom-cursor-ring.is-hidden,
+.custom-cursor-dot.is-hidden {
+  opacity: 0;
+}
+
+.custom-cursor-tick {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: var(--color-brand-ochre);
+  transform: translateX(-50%);
+}
+
+.custom-cursor-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-brand-ochre);
+  box-shadow: 0 0 0 2px var(--color-brand-cream), 0 0 0 3px rgba(20, 20, 22, 0.28);
+}
+
+.custom-cursor-dot.is-pressed {
+  width: 10px;
+  height: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor-ring,
+  .custom-cursor-dot {
+    transition: none;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -39,40 +112,6 @@ html {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #F9A826;
-}
-
-/* Rotating text badge */
-@keyframes spinSlow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin-slow {
-  animation: spinSlow 14s linear infinite;
-}
-
-/* Infinite Marquee */
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 25s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
 }
 
 /* Gentle Floating */
@@ -89,6 +128,19 @@ html {
   animation: floatGentle 5s ease-in-out infinite;
 }
 
+@keyframes projectDetailIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
 /* Subtle organic shadow */
 .shadow-soft {
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 4px 12px -4px rgba(0, 0, 0, 0.03);
@@ -96,6 +148,90 @@ html {
 
 .shadow-card-hover {
   box-shadow: 0 20px 40px -15px rgba(249, 168, 38, 0.18), 0 10px 20px -8px rgba(0, 0, 0, 0.04);
+}
+
+.specialty-drop-card {
+  will-change: transform, opacity;
+}
+
+@media (min-width: 64rem) and (min-height: 44rem) {
+  .presentation-parallax-track {
+    position: relative;
+    height: 200svh;
+  }
+
+  .presentation-parallax-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .presentation-parallax-panel {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .presentation-about-anchor {
+    position: absolute;
+    top: 60svh;
+  }
+}
+
+@media (max-width: 63.999rem), (max-height: 43.999rem) {
+  .presentation-parallax-track {
+    overflow-x: clip;
+  }
+
+  .presentation-parallax-stage {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .presentation-parallax-panel {
+    position: relative;
+    pointer-events: auto !important;
+  }
+
+  .presentation-about-anchor {
+    display: block;
+    height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .presentation-parallax-track {
+    height: auto;
+  }
+
+  .presentation-parallax-stage {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .presentation-parallax-panel {
+    position: relative;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .presentation-about-anchor {
+    position: static;
+    display: block;
+    height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .specialty-drop-card {
+    will-change: auto;
+  }
 }
 
 /* Glassmorphic border glow */

@@ -26,7 +26,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-2 sm:p-6 md:p-10 overflow-y-auto">
       {/* Backdrop */}
       <div
         onClick={onClose}
@@ -34,11 +34,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       />
 
       {/* Modal Dialog (Perez rounded style) */}
-      <div className="relative z-10 w-full max-w-4xl bg-white rounded-[36px] border border-black/10 shadow-2xl overflow-hidden my-auto animate-in zoom-in-95 duration-200">
+      <div className="relative z-10 w-full max-w-4xl bg-white rounded-2xl sm:rounded-[36px] border border-black/10 shadow-2xl overflow-hidden my-auto animate-in zoom-in-95 duration-200">
         
         {/* Modal Top Header Bar */}
-        <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-black/5 bg-[#FFF8F1]">
-          <div className="flex items-center gap-3 text-xs font-semibold">
+        <div className="flex items-start justify-between gap-3 px-4 sm:px-8 py-4 sm:py-5 border-b border-black/5 bg-[#FFF8F1]">
+          <div className="flex min-w-0 flex-wrap items-center gap-2 text-xs font-semibold">
             <span className="px-3 py-1 rounded-full bg-[#FFF5EB] text-[#F9A826] border border-[#F5E6D3] uppercase tracking-wider">
               {project.categoryLabel}
             </span>
@@ -56,11 +56,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Modal Body Content */}
-        <div className="p-6 sm:p-8 md:p-10 max-h-[75vh] overflow-y-auto space-y-8 bg-white">
+        <div className="p-4 sm:p-8 md:p-10 max-h-[65dvh] sm:max-h-[75dvh] overflow-y-auto space-y-6 sm:space-y-8 bg-white">
           
           {/* Title & Tagline */}
           <div>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#141416] mb-2 font-sans">
+            <h2 className="text-2xl sm:text-4xl font-black text-[#141416] mb-2 font-sans">
               {project.title}
             </h2>
             <p className="text-base text-neutral-600 font-medium leading-relaxed">
@@ -134,12 +134,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Modal Footer Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-4 px-6 sm:px-8 py-5 border-t border-black/5 bg-[#FFF8F1]">
+        <div className="flex flex-wrap items-center justify-between gap-4 px-4 sm:px-8 py-4 sm:py-5 border-t border-black/5 bg-[#FFF8F1]">
           <div className="text-xs font-mono text-neutral-500">
             Statut : <span className="text-[#141416] font-bold">{project.statusBadge}</span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
@@ -156,7 +156,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               href={project.url}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#141416] hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md"
+              className="flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full bg-[#141416] hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md"
             >
               <span>Accéder au site en direct</span>
               <ExternalLink className="w-3.5 h-3.5 text-[#F9A826]" />

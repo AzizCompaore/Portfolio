@@ -1,9 +1,7 @@
 import React from 'react';
 import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { MarqueeBanner } from './components/MarqueeBanner';
-import { About } from './components/About';
+import { PresentationParallax } from './components/PresentationParallax';
 import { Specialties } from './components/Specialties';
 import { DeveloperLaptopParallax } from './components/DeveloperLaptopParallax';
 import { Projects } from './components/Projects';
@@ -22,9 +20,7 @@ export default function App() {
       <Navbar />
 
       <main>
-        <Hero />
-        <MarqueeBanner />
-        <About />
+        <PresentationParallax />
         <Specialties />
         <DeveloperLaptopParallax />
         <Projects />

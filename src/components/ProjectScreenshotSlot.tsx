@@ -8,15 +8,14 @@ interface ProjectScreenshotSlotProps {
 }
 
 export const ProjectScreenshotSlot: React.FC<ProjectScreenshotSlotProps> = ({ project, aspect = 'card' }) => {
-  const [screenshot, setScreenshot] = useState<string | null>(null);
+  const [customScreenshot, setCustomScreenshot] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const screenshot = customScreenshot ?? project.screenshot ?? null;
 
   // Load saved screenshot from localStorage if user provided one
   useEffect(() => {
     const saved = localStorage.getItem(`screenshot_${project.id}`);
-    if (saved) {
-      setScreenshot(saved);
-    }
+    setCustomScreenshot(saved);
   }, [project.id]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +24,7 @@ export const ProjectScreenshotSlot: React.FC<ProjectScreenshotSlotProps> = ({ pr
       const reader = new FileReader();
       reader.onloadend = () => {
         const result = reader.result as string;
-        setScreenshot(result);
+        setCustomScreenshot(result);
         try {
           localStorage.setItem(`screenshot_${project.id}`, result);
         } catch {
@@ -38,7 +37,7 @@ export const ProjectScreenshotSlot: React.FC<ProjectScreenshotSlotProps> = ({ pr
 
   const handleRemove = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setScreenshot(null);
+    setCustomScreenshot(null);
     localStorage.removeItem(`screenshot_${project.id}`);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
@@ -88,7 +87,7 @@ export const ProjectScreenshotSlot: React.FC<ProjectScreenshotSlotProps> = ({ pr
             <img
               src={screenshot}
               alt={`Capture d'écran de ${project.title}`}
-              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              className={`w-full h-full ${project.screenshotFit === 'contain' ? 'object-contain' : 'object-cover object-top'} transition-transform duration-500 group-hover:scale-105`}
             />
             {/* Overlay to remove or update */}
             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
@@ -96,13 +95,15 @@ export const ProjectScreenshotSlot: React.FC<ProjectScreenshotSlotProps> = ({ pr
                 <Upload className="w-3.5 h-3.5" />
                 Remplacer la capture
               </span>
-              <button
-                onClick={handleRemove}
-                className="p-1.5 bg-red-600 hover:bg-red-700 text-white rounded-full transition-colors"
-                title="Supprimer la capture"
-              >
-                <X className="w-4 h-4" />
-              </button>
+              {customScreenshot && (
+                <button
+                  onClick={handleRemove}
+                  className="p-1.5 bg-red-600 hover:bg-red-700 text-white rounded-full transition-colors"
+                  title="Supprimer la capture personnalisée"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
             </div>
           </>
         ) : (

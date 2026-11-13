@@ -24,7 +24,7 @@ export const About: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-20 md:py-28 bg-[#FFF8F1]">
+    <section className="py-20 md:py-28 bg-[#FFF8F1]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Perez Style About Card Container with Subtle Interactive Depth */}
@@ -63,48 +63,18 @@ export const About: React.FC = () => {
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-6 h-[2px] bg-[#F9A826]" />
                 <span className="text-xs uppercase tracking-widest text-[#F9A826] font-bold">
-                  About me
+                  À propos
                 </span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#141416] tracking-tight leading-tight mb-2 font-sans">
-                {PERSONAL_INFO.fullName}
+                Mon approche
               </h2>
 
-              <p className="text-base sm:text-lg font-bold text-neutral-800 mb-6">
-                {PERSONAL_INFO.title}
-              </p>
-
-              <div className="space-y-4 text-neutral-600 leading-relaxed text-sm sm:text-base font-normal">
+              <div className="text-neutral-600 leading-relaxed text-sm sm:text-base font-normal">
                 <p>
-                  Je suis étudiant en informatique à l'<strong>Université Agitel Formation</strong> à Abidjan, en Licence 3.
+                  Je conçois des applications web et intègre des outils d'intelligence artificielle pour répondre à des besoins concrets. J'accorde autant d'importance à la qualité technique qu'à l'utilité des solutions développées.
                 </p>
-                <p>
-                  Passionné par la conception de solutions numériques, le développement logiciel, l'intelligence artificielle et les nouvelles technologies, je combine développement full-stack (Django, React, Python), modèles d'IA (Google Gemini, OpenAI), administration de bases de données et esprit d'émulation collective.
-                </p>
-                <p className="text-sm text-neutral-500">
-                  Vainqueur du hackathon <strong>Google Build with AI</strong> (Avril 2026) et développeur lead du projet <strong>AgriVigil</strong> au <strong>Vibeathon</strong> (Juillet 2026).
-                </p>
-              </div>
-
-              {/* Handwritten signature (Caveat font) matching Perez reference */}
-              <div className="mt-8 pt-6 border-t border-black/10 flex items-center justify-between">
-                <div>
-                  <span className="text-xs font-mono text-neutral-400 block">Signature</span>
-                  <span
-                    className="text-4xl sm:text-5xl text-[#141416] font-bold block mt-1 hover:text-[#F9A826] transition-colors duration-300"
-                    style={{ fontFamily: 'var(--font-handwriting)' }}
-                  >
-                    Aziz Compaore
-                  </span>
-                </div>
-
-                <div className="text-right">
-                  <span className="text-xs font-mono text-neutral-400 block">Diplôme préparé</span>
-                  <span className="text-xs font-bold text-[#141416] block mt-1">
-                    Licence 3 Informatique (2026)
-                  </span>
-                </div>
               </div>
 
             </div>
