@@ -1,5 +1,7 @@
 import { Project, SkillCategory, Achievement, EducationItem } from '../types';
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export const PERSONAL_INFO = {
   fullName: 'Compaoré Abdoul Aziz',
   shortName: 'Aziz Compaoré',
@@ -14,9 +16,9 @@ export const PERSONAL_INFO = {
   github: 'https://github.com/AzizCompaore',
   bio: `Étudiant en Licence 3 Informatique à l'Université Agitel Formation à Abidjan. Passionné par la conception de solutions numériques, le développement logiciel, l'intelligence artificielle et les nouvelles technologies. Mon profil combine développement full-stack, intégration de modèles d'IA (Google Gemini, OpenAI), bases de données relationnelles et leadership technique lors de hackathons.`,
   images: {
-    heroPortrait: '/assets/portfolio/WhatsApp_Image_2026-11-09_at_13.30.33_dc057b37.jpeg',
-    leadershipPortrait: '/assets/portfolio/WhatsApp_Image_2026-11-09_at_13.50.14_e88d323f.jpeg',
-    awardsPhoto: '/assets/portfolio/WhatsApp_Image_2026-11-09_at_13.21.04_d2a8b303.jpeg',
+    heroPortrait: publicAsset('assets/portfolio/WhatsApp_Image_2026-11-09_at_13.30.33_dc057b37.jpeg'),
+    leadershipPortrait: publicAsset('assets/portfolio/WhatsApp_Image_2026-11-09_at_13.50.14_e88d323f.jpeg'),
+    awardsPhoto: publicAsset('assets/portfolio/WhatsApp_Image_2026-11-09_at_13.21.04_d2a8b303.jpeg'),
   }
 };
 
@@ -29,7 +31,7 @@ export const PROJECTS_DATA: Project[] = [
     categoryLabel: 'IA & Agronomie',
     year: '2026',
     url: 'https://azizcompaore.github.io/agrivigil-ai/',
-    screenshot: '/assets/portfolio/agrivigil-ai.png',
+    screenshot: publicAsset('assets/portfolio/agrivigil-ai.png'),
     screenshotFit: 'contain',
     githubUrl: 'https://github.com/AzizCompaore',
     role: 'Développeur Lead & Concepteur',
@@ -55,7 +57,7 @@ export const PROJECTS_DATA: Project[] = [
     categoryLabel: 'Télématique & GPS',
     year: '2026',
     url: 'https://azizcompaore.github.io/horizon-tracking-site/',
-    screenshot: '/assets/portfolio/horizon-tracking.png',
+    screenshot: publicAsset('assets/portfolio/horizon-tracking.png'),
     role: 'Développeur Full-Stack',
     context: 'Plateforme de géolocalisation GPS en temps réel et télématique.',
     problem: 'Supervision des flottes de véhicules et gestion de la sécurité des parcs.',
@@ -79,7 +81,7 @@ export const PROJECTS_DATA: Project[] = [
     categoryLabel: 'Agri-Commerce',
     year: '2026',
     url: 'https://azizcompaore.github.io/AgroMarche/',
-    screenshot: '/assets/portfolio/agromarche.png',
+    screenshot: publicAsset('assets/portfolio/agromarche.png'),
     githubUrl: 'https://github.com/AzizCompaore/AgroMarche',
     role: 'Développeur Frontend',
     context: 'Plateforme de connexion directe entre planteurs et acheteurs.',
@@ -104,7 +106,7 @@ export const PROJECTS_DATA: Project[] = [
     categoryLabel: 'Mobilité Urbaine',
     year: '2026',
     url: 'https://azizcompaore.github.io/konekt/',
-    screenshot: '/assets/portfolio/konekt.png',
+    screenshot: publicAsset('assets/portfolio/konekt.png'),
     githubUrl: 'https://github.com/AzizCompaore/konekt',
     role: 'Développeur Frontend',
     context: 'Projet dédié à la mobilité et aux 37 km de la Ligne 1 du Métro d\'Abidjan (Anyama ↔ Aéroport).',
@@ -129,7 +131,7 @@ export const PROJECTS_DATA: Project[] = [
     categoryLabel: 'FinTech & Immobilier',
     year: '2026',
     url: 'https://immodiaspoinvest.urielgroup.fr/',
-    screenshot: '/assets/portfolio/immo-diaspo-invest.png',
+    screenshot: publicAsset('assets/portfolio/immo-diaspo-invest.png'),
     role: 'Développeur Web',
     context: 'Projet réalisé pour URIEL GROUP Afrique pour la diaspora.',
     problem: 'Vérifier l\'éligibilité à une solution de financement pour investir dans l\'immobilier en Côte d\'Ivoire depuis l\'étranger.',
@@ -153,7 +155,7 @@ export const PROJECTS_DATA: Project[] = [
     categoryLabel: 'E-Commerce Textile',
     year: '2026',
     url: 'https://azizcompaore.github.io/deep-digital/',
-    screenshot: '/assets/portfolio/deep-digital.png',
+    screenshot: publicAsset('assets/portfolio/deep-digital.png'),
     role: 'Développeur Full-Stack',
     context: 'Studio digital de personnalisation textile basé à Abidjan.',
     problem: 'Personnaliser facilement ses vêtements et supports textiles avec aperçu réel avant impression.',
@@ -177,7 +179,7 @@ export const PROJECTS_DATA: Project[] = [
     categoryLabel: 'Marketplace',
     year: '2026',
     url: 'https://azizcompaore.github.io/Marketplace/',
-    screenshot: '/assets/portfolio/g-marketplace.png',
+    screenshot: publicAsset('assets/portfolio/g-marketplace.png'),
     githubUrl: 'https://github.com/AzizCompaore/Marketplace',
     role: 'Développeur Frontend',
     context: 'Plateforme de commerce électronique multi-vendeurs.',
@@ -202,7 +204,7 @@ export const PROJECTS_DATA: Project[] = [
     categoryLabel: 'Immobilier',
     year: '2026',
     url: 'https://laresidencenoema.com/',
-    screenshot: '/assets/portfolio/residence-noema.png',
+    screenshot: publicAsset('assets/portfolio/residence-noema.png'),
     role: 'Développeur Web',
     context: 'Site vitrine officiel du programme immobilier Résidence NOEMA par URIEL GROUP Afrique.',
     problem: 'Présentation claire des appartements neufs, des plans et des financements pour les futurs acquéreurs.',
